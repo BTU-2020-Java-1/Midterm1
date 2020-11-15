@@ -8,7 +8,7 @@ public class MoviesServiceImpl implements MovieService {
     public void saveMovie(Movie movie) {
         String path = "data/" + movie.getId() + ".txt";
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(path))){
-            out.writeUnshared(movie);
+            out.writeObject(movie);
         } catch (IOException ex) {
             System.out.println("დაფიქსირდა გაუთვალისწინებელი შეცდომა " + ex.getMessage());
         }
